@@ -18,6 +18,9 @@ namespace DesignPatterns.Builder
             Console.WriteLine("\n Builder with Inheritance");
             FluentBuilderInheritanceDemo.UseFluentBuilderWithInheritance();
 
+            Console.WriteLine("\n Functional Fluent Builder");
+            FunctionalFluentBuilderDemo.Use();
+
             Console.ReadKey();
             Console.WriteLine("the program is done");
             
