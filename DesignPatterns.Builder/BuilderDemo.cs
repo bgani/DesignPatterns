@@ -72,6 +72,9 @@ namespace DesignPatterns.Builder
         {
             var e = new HtmlElement(childName, childText);
             root.Elements.Add(e);
+
+            // by returning this we can create Fluent Builder
+            // but this approach is not going to work with inheritance
             return this;
         }
 

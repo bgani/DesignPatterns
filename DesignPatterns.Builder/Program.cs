@@ -12,8 +12,11 @@ namespace DesignPatterns.Builder
             Console.WriteLine("\n With builder");
             BuilderDemo.UseBuilder();
 
-            Console.WriteLine("\n With fluent builder");
+            Console.WriteLine("\n Fluent builder");
             BuilderDemo.UseFluentBuilder();
+
+            Console.WriteLine("\n Builder with Inheritance");
+            FluentBuilderInheritanceDemo.UseFluentBuilderWithInheritance();
 
             Console.ReadKey();
             Console.WriteLine("the program is done");
