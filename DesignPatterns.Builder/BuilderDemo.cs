@@ -4,7 +4,12 @@ using System.Text;
 using static System.Console;
 
 /// <summary>
+/// Builder provies an API For constructing an object step-by-step
 /// When peicewise object construction is complicated provide an API for doing it succintly
+/// Motivation:
+/// - Some objects are simple and can be created in a single constructor call
+/// - Others require a lot of ceremony, having an object with 10 constructor arguments is not productive
+/// - Instead, allow people to cunstruct object piece by piece
 /// </summary>
 namespace DesignPatterns.Builder
 {
@@ -63,10 +68,11 @@ namespace DesignPatterns.Builder
             this.rootName = rootName;
         }
 
-        public void AddChild(string childName, string childText)
+        public HtmlBuilder AddChild(string childName, string childText)
         {
             var e = new HtmlElement(childName, childText);
             root.Elements.Add(e);
+            return this;
         }
 
         public override string ToString()
@@ -115,6 +121,13 @@ namespace DesignPatterns.Builder
             builder.AddChild("li", "programmer");
             WriteLine(builder.ToString()); 
 
+        }
+
+        public static void UseFluentBuilder()
+        {
+            var builder = new HtmlBuilder("ul");
+            builder.AddChild("li", "hi").AddChild("li", "programmer");
+            WriteLine(builder.ToString());
         }
 
     }
